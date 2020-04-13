@@ -2,6 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+// React, Redux & Firebase
+// Thunk used in redux works really well for async code
+// Firebase 
+// -Firestore, authentication, cloud functioons, hosting
+
 function App() {
   return (
     <div className="App">
