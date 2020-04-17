@@ -5,7 +5,7 @@ import Dashboard from './components/dashboard/dashboard'
 import ProjectDetails from './components/projects/projectDetails'
 import SignIn from './components/auth/signIn'
 import SignUp from './components/auth/signUp'
-
+import CreateProject from './components//projects/createProject'
 // React, Redux & Firebase
 // Thunk used in redux works really well for async code
 // Firebase 
@@ -20,8 +20,8 @@ function App() {
        <Route exact path='/' component={Dashboard} />
        <Route path='/signin' component={SignIn}/>
        <Route path='/signup' component={SignUp}/>   
+       <Route path='/createproject' component={CreateProject}/>
        <Route path='/:id' component={ProjectDetails}/>
-
        
      </Switch>
     </div>
