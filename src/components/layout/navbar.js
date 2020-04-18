@@ -8,12 +8,11 @@ const Navbar = () => {
         <nav className="nav-wrapper grey darken-3">
             <div className="container">
                 <Link to='/' className="brand-logo">MarioPlan</Link>
-            <SignedInLinks/>
-            <SignedOutLinks/>
-            
+                <SignedInLinks />
+                <SignedOutLinks />
             </div>
         </nav>
-        
+
     )
 }
 
