@@ -6,6 +6,7 @@ import ProjectDetails from './components/projects/projectDetails'
 import SignIn from './components/auth/signIn'
 import SignUp from './components/auth/signUp'
 import CreateProject from './components//projects/createProject'
+import './App.css';
 // React, Redux & Firebase
 // Thunk used in redux works really well for async code
 // Firebase 
