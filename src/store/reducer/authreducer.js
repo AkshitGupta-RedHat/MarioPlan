@@ -11,7 +11,7 @@ const initState= {
 
 const authReducer = (state = initState, action) => {
     console.log(state,action);
-    if(action.type="DELETE_POST"){
+    if(action.type=="DELETE_POST"){
         let newstate = state.projects.filter(project => {
             return project.id ==action.id;
         }); 

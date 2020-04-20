@@ -13,17 +13,21 @@ const initState= {
 }
 
 const projectReducer = (state = initState, action) => {
-    console.log(state,action);
-    if(action.type="DELETE_POST"){
-        let newstate = state.projects.filter(project => {
-            return project.id ==action.id;
-        }); 
-        return {
-            ...state,
-            posts:newstate 
-        }
-
+    console.log('up',state,action);
+    switch (action.type) {
+        case 'CREATE_PROJECT':
+        console.log('created project', action.project)
     }
+    // if(action.type="CREATE_PROJECT"){
+    //     let newstate = state.projects.filter(project => {
+    //         return project.id ==action.id;
+    //     }); 
+    //     return {
+    //         ...state,
+    //         posts:newstate 
+    //     }
+
+    // }
     return state;
 }
 export default projectReducer

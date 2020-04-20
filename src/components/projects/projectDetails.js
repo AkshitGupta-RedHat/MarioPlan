@@ -26,10 +26,10 @@ const mapPropstoStore = (state, ownprops) =>{
     }
 }
 
-const mapDeletetoProps = (dispatch) =>{
-    return {
-        deleteproject : id => dispatch(deleteprojects(id))
-    }
-}
+// const mapDeletetoProps = (dispatch) =>{
+//     return {
+//         deleteproject : id => dispatch(deleteprojects(id))
+//     }
+// }
 
-export default connect(mapPropstoStore, mapDeletetoProps)(projectDetails)
+export default connect(mapPropstoStore)(projectDetails)
