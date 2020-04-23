@@ -22,8 +22,7 @@ import fbConfig from './config/fbConfig'
 //Similarly we use compose to combine store functionality
 const store = createStore(rootReducer, 
   compose(
-  applyMiddleware(thunk, withExtraArgument({getFirebase, getfirestore})),
-import fbConfig from './config/fbConfig'
+  applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
   reduxFirestore(fbConfig),
   reactReduxFirebase(fbConfig)
   )

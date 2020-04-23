@@ -1,17 +1,17 @@
 import firebase from 'firebase/app'  
 import 'firebase/firestore'
-import 'firebase/auto'
+import 'firebase/auth'
 
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyA9jU8YFZyhd2r812l2FVlD3UrHKktQOUY",
-    authDomain: "mario-plan-26dd9.firebaseapp.com",
-    databaseURL: "https://mario-plan-26dd9.firebaseio.com",
-    projectId: "mario-plan-26dd9",
-    storageBucket: "mario-plan-26dd9.appspot.com",
-    messagingSenderId: "193809670150",
-    appId: "1:193809670150:web:15e72e58601595b642e387",
-    measurementId: "G-DL50QN2GS1"
+    apiKey: "AIzaSyBjoNRP3HucRa_hRIY2NwggtvxUEijELuk",
+    authDomain: "marioplan-51df4.firebaseapp.com",
+    databaseURL: "https://marioplan-51df4.firebaseio.com",
+    projectId: "marioplan-51df4",
+    storageBucket: "marioplan-51df4.appspot.com",
+    messagingSenderId: "321216514638",
+    appId: "1:321216514638:web:c1cf3dd819c0a1ebca511f",
+    measurementId: "G-6KRYK7Z5FH"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
