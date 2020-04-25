@@ -40,7 +40,7 @@ const  projectDetails =(props) => {
     }
 }
 
-const mapStatetoProps = (state, ownProps) =>{
+const mapStatetoProps = (state, ownProps) => {
     let id = ownProps.match.params.id;
     const projects = state.firestoreReducer.data.project;
     const project = projects ? projects[id]: null;
