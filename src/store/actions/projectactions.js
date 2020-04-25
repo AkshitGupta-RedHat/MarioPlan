@@ -4,7 +4,7 @@ export const projectActions = (project) =>{
     console.log(project);
     return (dispatch, getState, {getFirebase, getFirestore}) =>{
        const firestore = getFirestore();
-       firestore.collection("project").add({
+       firestore.collection ("project").add({
           ...project,
           authorFrstName:'aksh',
           authorLastName:'Nnja',

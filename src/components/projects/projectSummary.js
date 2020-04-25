@@ -1,6 +1,9 @@
 import React from 'react'
 import ProjetDeatils from './projectDetails'
 import { Link } from "react-router-dom";
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { frestoreConnect } from 'react-redux-firebase'
 const projectsummary = (projectsummary, keys) => {
   console.log(projectsummary);
   console.log(projectsummary.projectsummary.id);
@@ -17,4 +20,10 @@ const projectsummary = (projectsummary, keys) => {
     )
  }
 
+
+ const mapPropstoState = (state)=>{
+   return {
+    project : state.firestoreReducer.ordered.project
+   }
+ }
  export default projectsummary
