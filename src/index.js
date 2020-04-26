@@ -30,7 +30,8 @@ const store = createStore(rootReducer,
   applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
   reduxFirestore(fbConfig),
   // Config in the firebase which gives access to a promise
-  reactReduxFirebase(fbConfig, {attachAuthIsReady: true})
+  // useFirestoreForProfile and userProfile to load the profile of logged in user 
+  reactReduxFirebase(fbConfig, {useFirestoreForProfile:true, userProfile:'users', attachAuthIsReady: true})
   )
 );
 // this is the promise

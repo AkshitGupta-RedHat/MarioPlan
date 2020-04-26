@@ -8,7 +8,7 @@ const ProjectList = ({projectsdata}) => {
             {projectsdata && projectsdata.map(projectdata => {
                 console.log(projectdata);
                 return(
-                    <ProjectSummary projectsummary ={projectdata} keys={projectdata.id} />   
+                    <ProjectSummary projectsummary ={projectdata} />   
                 )  
             })}  
         </div>
