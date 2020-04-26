@@ -1,25 +1,24 @@
-const initState= {
-    projects:[
-        {"id":'1',
-        "title" : "Project 1",
-        "date":"18/04/2020"},
-        {"id":'2',
-        "title" : "Project 2",
-        "date":"18/04/2020"},
-    ]
-}
+const initState= {authError:null}
 
 const authReducer = (state = initState, action) => {
     console.log(state,action);
-    if(action.type=="DELETE_POST"){
-        let newstate = state.projects.filter(project => {
-            return project.id ==action.id;
-        }); 
-        return {
-            ...state,
-            posts:newstate 
-        }
-    }
+    switch(action.type){
+        case "SIGNIN_SUCCESS":
+            console.log("SIGNIN_SUCCESS");
+            console.log(state);
+            return {state,
+                authError:null }
+            case "SIGNIN_ERR":
+                console.log("SIGNIN_ERR");  
+                return {
+                    ...state,
+                    authError:'Login Failed'    
+                }
+            default:
+                console.log("Default");
+                console.log(state);
+              };
+              console.log(state);
     return state;
 }
 export default authReducer
