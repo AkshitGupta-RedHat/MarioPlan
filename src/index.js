@@ -20,18 +20,27 @@ import fbConfig from './config/fbConfig'
 //the way we do that by using compose
 //like we used combineReducerto combine reducers 
 //Similarly we use compose to combine store functionality
+
+
+//there s a flick in the navbar when we are refreshng the page 
+// It is because ReactDOM is rendering before the firebase authentication
+// We need to wait so that so that firebase initialized
 const store = createStore(rootReducer, 
   compose(
   applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
   reduxFirestore(fbConfig),
-  reactReduxFirebase(fbConfig)
+  // Config in the firebase which gives access to a promise
+  reactReduxFirebase(fbConfig, {attachAuthIsReady: true})
   )
 );
+// this is the promise
+  store.firebaseAuthIsReady.then(() => {
+    ReactDOM.render(
+      <Provider store={store}><App /></Provider>,
+      document.getElementById('root')
+    );
+  })
 
-ReactDOM.render(
-  <Provider store={store}><App /></Provider>,
-  document.getElementById('root')
-);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
