@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import { signUp } from '../../store/actions/authAction'
 class SignUp extends Component {
     state = {
         lastname:'',
@@ -17,6 +18,7 @@ class SignUp extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         console.log(this.state);
+        this.props.newUser(this.state);
     }
 
     render() {
@@ -32,19 +34,19 @@ class SignUp extends Component {
                     <h5 className="grey-text text-darken-3">Sign Up</h5>
                     <div className="input-field">
                         <label htmlFor="text">First Name</label>
-                        <input type="text" id="firstname" onChange={this.handleChange} />
+                        <input  className = 'white-text' type="text" id="firstname" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
                         <label htmlFor="text">Last Name</label>
-                        <input type="text" id="lastname" onChange={this.handleChange} />
+                        <input className = 'white-text' type="text" id="lastname" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={this.handleChange} />
+                        <input className = 'white-text' type="email" id="email" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" onChange={this.handleChange} />
+                        <input className = 'white-text' type="password" id="password" onChange={this.handleChange} />
                     </div>
                 <button classNa>Sign Up</button>
                 </form>
@@ -58,4 +60,10 @@ class SignUp extends Component {
             isLogIn:state.firebase.auth.uid
         }
     }
-export default connect(mapStateToProps)(SignUp)
+
+    const mapDispatchToProps = (dispatch) => {
+        return {
+            newUser : (data) => {dispatch(signUp(data))}
+        }
+    }
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

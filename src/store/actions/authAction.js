@@ -23,3 +23,24 @@ export const signOut = () =>{
         })
     }
 }
+
+    export const signUp = (newuser) => {
+        //{getFirebase}, {getFirestore} is not correct
+        //{getFirebase, getFirestore} is correct
+        return (dispatch,getState,{getFirebase, getFirestore}) => {
+            const firebase = getFirebase();
+            const firestore = getFirestore();
+            firebase.auth().createUserWithEmailAndPassword(
+                newuser.email,
+                newuser.password
+            ).then(resp => {
+                firestore.collection('users').doc(resp.user.uid).set({
+                    firstname: newuser.firstname,
+                    lasrname: newuser.lastname,
+                    initials: newuser.firstname[0] + newuser.lastname[0]
+                }).then(() => {
+                    dispatch({ type:'SIGN_UP'})
+                })
+            })
+        }
+    }
