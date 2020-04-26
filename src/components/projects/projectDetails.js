@@ -4,7 +4,7 @@ import {deleteprojects} from '../../action/action'
 import { firestore } from 'firebase';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-
+import {Redirect} from 'react-router-dom'
 
 
 const  projectDetails =(props) => {
@@ -12,6 +12,14 @@ const  projectDetails =(props) => {
         //destructure the project means project was in props but now we can direccrly access it
         // why prject.id s null because it takes some time from the redux state to update the project props
         const { project } = props;
+
+        const {isLogIn }= props;
+        console.log(props);
+        if(!isLogIn){
+            return (
+                <Redirect to ='/signin' />
+            )
+        }
         if(project){
         return (
             <div className="container section project-details">
@@ -47,7 +55,8 @@ const mapStatetoProps = (state, ownProps) => {
 
     console.log(state);
     return {
-        project : project
+        project : project,
+        isLogIn : state.firebase.auth.uid
     }
 }
 
