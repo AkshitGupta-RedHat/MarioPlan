@@ -4,18 +4,22 @@ import { Link } from "react-router-dom";
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { frestoreConnect } from 'react-redux-firebase'
-const projectsummary = (projectsummary, keys, props) => {
+// if the error Object is not a funtion then t means the function is not found or defined 
+// check the lib import that it it taken as a destructure or not
+import moment  from 'moment'
+const projectsummary = ({projectsummary}, keys, props) => {
   console.log(projectsummary);
-  console.log(projectsummary.projectsummary.id);
+  console.log(projectsummary.id);
   //console.log(props.project);
     return(
     <div className="card z-depth-0 project-summary purple">
         <div className="card-content grey-text text-darken-3 purple-darken-3">
-           <Link to = {'/'+ projectsummary.projectsummary.id}>
-             <span className="card-title black-text">{projectsummary.projectsummary.title}</span>
+           <Link to = {'/'+ projectsummary.id}>
+             <span className="card-title black-text">{projectsummary.title}</span>
            </Link>
-            <p>{projectsummary.projectsummary.content}</p>
-            <p className="grey-text">Created By: {projectsummary.projectsummary.authorFirstName} {projectsummary.projectsummary.authorLastName}</p>
+            <p>{projectsummary.content}</p>
+            <p className="grey-text">Created By: {projectsummary.authorFirstName} {projectsummary.authorLastName}</p>
+            <div><p>{moment(projectsummary.createdAt.toDate()).calendar()}</p></div>
             
         </div>
     </div>
