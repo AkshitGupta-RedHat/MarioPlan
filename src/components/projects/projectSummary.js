@@ -4,17 +4,19 @@ import { Link } from "react-router-dom";
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { frestoreConnect } from 'react-redux-firebase'
-const projectsummary = (projectsummary, keys) => {
+const projectsummary = (projectsummary, keys, props) => {
   console.log(projectsummary);
   console.log(projectsummary.projectsummary.id);
+  //console.log(props.project);
     return(
-    <div className="card z-depth-0 project-summary">
-        <div className="card-content grey-text text-darken-3">
+    <div className="card z-depth-0 project-summary purple">
+        <div className="card-content grey-text text-darken-3 purple-darken-3">
            <Link to = {'/'+ projectsummary.projectsummary.id}>
-             <span className="card-title">{projectsummary.projectsummary.id}</span>
+             <span className="card-title black-text">{projectsummary.projectsummary.title}</span>
            </Link>
-            <p>{}</p>
-            <p className="grey-text">3rd September, 2am</p>
+            <p>{projectsummary.projectsummary.content}</p>
+            <p className="grey-text">Created By: {projectsummary.projectsummary.authorFirstName} {projectsummary.projectsummary.authorLastName}</p>
+            
         </div>
     </div>
     )
@@ -26,4 +28,4 @@ const projectsummary = (projectsummary, keys) => {
     project : state.firestoreReducer.ordered.project
    }
  }
- export default projectsummary
+ export default connect(mapPropstoState)(projectsummary)

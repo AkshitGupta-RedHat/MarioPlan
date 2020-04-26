@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom'
 class Dashboard extends Component {
     render(){
         const { isLogIn }= this.props;
+        console.log(this.props);
         if (!isLogIn){
             return(
             <Redirect to='/signin' />

@@ -36,7 +36,7 @@ export const signOut = () =>{
             ).then(resp => {
                 firestore.collection('users').doc(resp.user.uid).set({
                     firstname: newuser.firstname,
-                    lasrname: newuser.lastname,
+                    lastname: newuser.lastname,
                     initials: newuser.firstname[0] + newuser.lastname[0]
                 }).then(() => {
                     dispatch({ type:'SIGN_UP'})

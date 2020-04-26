@@ -25,9 +25,11 @@ const  projectDetails =(props) => {
             <div className="container section project-details">
                 <div className="card z-depth-0">
                     <div className="card-content black">
-                        <span className="card-title purple-text">{project.title}- {id}</span>
+                        <span className="card-title purple-text">{project.title}</span>
                         
-                        <p className="white-text"></p>
+                        <p className="white-text">{project.content}</p>
+                        
+                        
                     </div>
                 </div>
             </div>
